@@ -1,0 +1,423 @@
+@@ -0,0 +1,422 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+		<title>Utilitarian Vending Machines - How Utilitarianism Can Account for Costs of Calculation v9</title>
+	<style type="text/css">
+	</style>
+	<style type="text/css">
+	@import url("resources/tufte.css");
+    </style>
+</head>
+<body>
+<article>
+<section>
+<h1 id="utilitarian-vending-machines-how-utilitarianism-can-account-for-costs-of-calculation">Utilitarian Vending Machines</h1>
+
+<p class="subtitle">How Utilitarianism Can Account for Costs of Calculation</p>
+<p><br></p>
+<p>Saul Munn
+	</p>
+<p>Professor Marion Smiley
+<br>
+Introduction to Ethics
+<br>
+25 October 2022
+<br> 
+Topic: Z</p>
+	</section>
+<section>
+		
+<h2 id="table-of-contents">Table of Contents</h2><div class="TOC">
+
+
+<ul>
+<li><a href="#utilitarian-vending-machines-how-utilitarianism-can-account-for-costs-of-calculation">Utilitarian Vending Machines: How Utilitarianism Can Account for Costs of Calculation</a>
+
+<ul>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#introduction">Introduction</a>
+
+<ul>
+<li><a href="#topic-questions">Topic Questions</a></li>
+<li><a href="#abstract">Abstract</a></li>
+</ul></li>
+<li><a href="#1-givens-and-clarifications">1 – Givens and Clarifications</a>
+
+<ul>
+<li><a href="#givens-and-clarifications-of-perfect-vending-machines">Givens and Clarifications of Perfect Vending Machines</a></li>
+</ul></li>
+<li><a href="#2-how-to-calculate-to-include-calculation-costs-an-instruction-manual">2 – How to Calculate to Include Calculation Costs: An Instruction Manual</a>
+
+<ul>
+<li><a href="#in-english">In English</a></li>
+<li><a href="#in-python">In Python</a></li>
+<li><a href="#an-example">An Example</a></li>
+</ul></li>
+<li><a href="#3-implications">3 – Implications</a>
+
+<ul>
+<li><a href="#implications-for-act-utilitarianism">Implications for Act-Utilitarianism</a></li>
+<li><a href="#implications-for-rule-based-ethics">Implications for Rule-Based Ethics</a></li>
+<li><a href="#implications-for-actors-who-maximize-in-other-fields">Implications for Actors who Maximize in Other Fields</a></li>
+</ul></li>
+<li><a href="#4-critiques-and-problems">4 – Critiques and Problems</a>
+
+<ul>
+<li><a href="#roughness">Roughness</a></li>
+<li><a href="#confidence">Confidence</a></li>
+<li><a href="#perfect-roughness-and-perfect-precision">&#8220;Perfect&#8221; Roughness and &#8220;Perfect&#8221; Precision</a></li>
+<li><a href="#applications-to-rule-based-ethics">Applications to Rule-Based Ethics</a></li>
+<li><a href="#infinities">Infinities</a></li>
+<li><a href="#information-hazards">Information Hazards</a></li>
+<li><a href="#other">Other</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div></section>
+<section>
+<h2 id="introduction">Introduction</h2>
+
+<h3 id="topic-questions">Topic Questions</h3>
+
+<p>How, if at all, can utilitarianism take into consideration the costs of calculation? What are some implications of one&#8217;s findings on calculability and its costs for utilitarianism? Are there implications of one&#8217;s findings for other forms of philosophy and other fields?</p>
+
+<h3 id="abstract">Abstract</h3>
+
+<p>Given a few key assumptions about utilitarian calculation (see section 1), utilitarian calculators can take utility costs of calculation into account in utilitarian calculation. I lay out a simple framework – an &#8220;instruction manual&#8221; for a utilitarian calculator – that would allow utilitarian calculators to take the utility costs of calculation into account (see section 2). I explain in section 3 a few implications that my findings have for act-utilitarianism, ethics in general, as well as other fields including business, philanthropy, and government. Finally, in section 4, I critique the various assumptions and frameworks of my paper and describe a few key problems.</p>
+</section>
+<section>
+	
+<h2 id="1-givens-and-clarifications">1 – Givens and Clarifications</h2>
+
+<p>This paper operates with language, terminology, and givens specific to this paper and the ideas within it. I do not necessarily claim that all of the following givens are true, but instead attempt to follow them to their logical end. The following I will take as language, terminology, and givens specific to this paper:</p>
+
+<ul>
+<li>consequentialist act-utilitarianism (unless otherwise noted)</li>
+<li>what I will call &#8220;perfect calculation,&#8221; which includes perfect knowledge (knowledge of absolutely everything), perfectly rational calculation, zero time delay, etc, of a three forms:
+
+<ul>
+<li>what I will call a &#8220;perfect calculating machine,&#8221; often called a perfect calculator, which I imagine like a machine that, when one presses a button, the machine outputs the result of the optimal action<sup><a href="#fn1-24570" id="fnr1-24570" title="see footnote" class="footnote">1</a></sup></li>
+<li>what I will call a &#8220;perfect vending machine,&#8221; which is a perfect calculating machine with utility costs<sup><a href="#fn2-24570" id="fnr2-24570" title="see footnote" class="footnote">2</a></sup> associated with different degrees of calculation<sup><a href="#fn3-24570" id="fnr3-24570" title="see footnote" class="footnote">3</a></sup></li>
+<li>what I will call an &#8220;imperfect calculating machine,&#8221; which is a perfect calculating machine with some inherent flaw in calculation, like imperfect knowledge or an imperfect understanding of utility, or uses some heuristic or bias</li>
+</ul></li>
+</ul>
+
+<h3 id="givens-and-clarifications-of-perfect-vending-machines">Givens and Clarifications of Perfect Vending Machines</h3>
+
+<p>Additionally, there are a few givens and language clarifications regarding perfect vending machines:</p>
+
+<ul>
+<li>what I will call the &#8220;scale of roughness,&#8221; which is the scale from perfectly rough calculation (defined below) to perfectly precise calculation (defined below). Figure 1 provides a visualization of the scale of roughness, perfectly rough calculation, perfectly precise calculation, and imperfectly rough calculation.
+
+<ul>
+<li>what I will call &#8220;perfectly rough calculation,&#8221; which is the infinitely extreme &#8220;left&#8221; end of the scale of roughness, toward the rough side. Perfectly rough calculation would likely produce perfectly random results.</li>
+<li>what I will call &#8220;perfectly precise calculation,&#8221; which is the infinitely extreme &#8220;right&#8221; end of the scale of roughness, toward the precise side. Perfectly precise calculation would produce the same results as those of a perfect calculating machine.</li>
+<li>what I will call &#8220;imperfectly rough calculation,&#8221; which is calculation that is neither perfectly precise nor perfectly rough; somewhere between the two extremes. Imperfectly rough calculation would produce the same responses as those of an imperfect calculating machine, given that the degree of &#8220;roughness&#8221; in the imperfectly rough calculation is commensurate to the degree of &#8220;imperfection&#8221; in the imperfect calculating machine.</li>
+</ul></li>
+<li>the scale of roughness is continuous</li>
+<li>on the scale of roughness, perfect vending machines operate exclusively in the gray area – they can potentially, but never actually, reach perfect calculation (neither perfectly rough nor perfectly precise)</li>
+<li>an increase or decrease in preciseness of calculation would result in an increase or decrease in preciseness of the calculated optimal action<sup><a href="#fn4-24570" id="fnr4-24570" title="see footnote" class="footnote">4</a></sup></li>
+<li>an increase or decrease in the preciseness of calculation would result in greater or lesser utility cost of calculation<sup><a href="#fn5-24570" id="fnr5-24570" title="see footnote" class="footnote">5</a></sup></li>
+<li>a perfect calculating machine can operate on any level of imperfect roughness that it chooses or that is chosen for it; i.e. there aren&#8217;t &#8220;limits&#8221; nor &#8220;caps&#8221; to its operation in imperfect calculation</li>
+</ul>
+
+<p><em>Figure 1:</em></p>
+
+<figure>
+	<img src="resources/Scale of Roughness.jpeg" alt="The &#8220;scale of roughness,&#8221; with a gradient bar from white on the left associated with perfectly rough calculation to black on the right associated with perfectly precise calculation. All values between the two extremes are characterized as imperfectly rough calculation."/>
+	</figure>
+</section>
+<section><h2 id="2-how-to-calculate-to-include-calculation-costs-an-instruction-manual">2 – How to Calculate to Include Calculation Costs: An Instruction Manual</h2>
+
+<h3 id="in-english">In English</h3>
+
+<p>‌The following steps assume the use of a perfect vending machine.</p>
+
+<ol>
+<li><p>Begin calculation on the scale of roughness at the level of imperfectly rough calculation closest to perfectly rough calculation.</p></li>
+<li>Calculate each of the following:
+
+<ol>
+<li>What is the optimal action?</li>
+<li>What will be the (positive) utility value of the optimal action?</li>
+<li>What will be the (negative) utility cost of performing the next-most-precise imperfectly rough calculation?</li>
+<li>What will be the sum total (negative) utility cost of all previous calculations, the current calculation, and the next calculation?</li>
+</ol></li>
+<li>If the computed (positive) utility value of the optimal action plus the computed sum total (negative) utility cost of all previous levels of calculations, the current level of calculation, and the next level of calculation is greater than zero:
+
+<ol>
+<li>Move to the next-most-precise level of calculation on the scale of roughness.</li>
+<li>Repeat steps 2 and 3.</li>
+</ol>
+
+<p>Otherwise, move to step 4.</p></li>
+<li>If the computed (positive) utility value of the optimal action plus the computed sum total (negative) utility cost of all previous levels of calculations, the current level of calculation, and the next level of calculation is less than or equal to zero:
+
+<ol>
+<li>Stop calculating.</li>
+<li>Show the optimal action that was computed in the most-precise level of calculation as the result.</li>
+</ol></li>
+</ol>
+
+<h3 id="in-python">In Python</h3>
+
+<p>The following code block shows what the above steps might look like in Python.</p>
+
+<pre><code>
+def calculate():
+    #The calculate function will be used to denote a perfect or imperfect calculation.
+    pass
+
+def calc_to_include_calc(set_of_all_possible_actions):
+    #Defining terms
+    oa = optimal_action
+    oanu = optimal_action_net_utility
+    rl = roughness_level
+    nrlmcc = next_roughness_level_marginal_calculation_cost
+    tcc = total_cost_of_calculation
+    sor = scale_of_roughness
+        #Scale of roughness will be defined as a list, with sor[0] = perfectly rough calculation, sor[1] = the imperfectly rough calculation closest to perfectly rough calculation, sor[-2] = the imperfectly rough calculation closest to perfectly precise calculation, and sor[-1] = perfectly precise calculation.
+
+    #Steps in Calculation
+    calculate(oa)
+    calculate(oanu)
+    calculate(nrlmcc)
+
+    tcc = nrlmcc
+
+    for rl in sor[1:-2]:
+        if oanu + tcc &gt; 0:
+            calculate(oa)
+            calculate(oanu)
+            calculate(nrlmcc)
+            tcc =+ nrlmcc
+        else:
+            break
+
+    print(oa)
+
+calc_to_include_calc([set_of_all_possible_actions])
+</code></pre>
+
+<h3 id="an-example">An Example</h3>
+
+<p>As an (again strongly imperfect and imprecise) example, we can imagine starting at roughness level 1, the abstract, imperfectly rough calculation closest to perfectly rough calculation. After evaluating the set of all possible actions, &#8220;award Saul a B on his paper,&#8221; is estimated to be the optimal action for Professor Smiley to take with a net utility value of +10 points. The next-most precise level of calculation (roughness level 2) has a marginal cost of -6 points associated with it. Since the utility value of the optimal action (+10) plus the next-most precise level of calculation (-6) is greater than zero utility points, we would proceed to the next-most precise level of calculation (roughness level 2).</p>
+
+<p>At roughness level 2, it might be found that, in fact, the optimal action is &#8220;award Saul an A on his paper,&#8221; with a net utility value of +15 points. It might also be found that the next-most precise level of calculation, roughness level 3, would carry a utility cost of -8 points. Since the utility value of the optimal action (+15) plus the sum total utility cost (-14) of the current level of calculation (-6) and the next level of calculation (-8) is greater than zero utility points, we would proceed to the next-most precise level of calculation (roughness level 3).</p>
+
+<p>At roughness level 3, it might be found that, in fact, the optimal action is &#8220;award Saul an A+ on his paper and tell him &#8216;well done,&#8217;&#8221; with a net utility value of +20 points. It might also be found that the next-most precise level of calculation, roughness level 4, would carry a utility cost of -10 points. Since the utility value of the optimal action (+20) plus the sum total utility cost (-24) of all previous levels of calculations (-6), the current level of calculation (-8), and the next level of calculation (-10) is less than<sup><a href="#fn6-24570" id="fnr6-24570" title="see footnote" class="footnote">6</a></sup> zero utility points, we would break out of the loop of calculation by stopping all calculation, then showing the result of &#8220;award Saul an A+ on his paper and tell him &#8216;well done&#8217;&#8221; to the user of the perfect vending machine.</p>
+</section>
+<section><h2 id="3-implications">3 – Implications</h2>
+
+<h3 id="implications-for-act-utilitarianism">Implications for Act-Utilitarianism</h3>
+
+<p>While both perfect calculators and perfect vending machines are clearly different from reality, the latter are one step closer to being concretely applicable under act-utilitarianism.</p>
+
+<p><em>Figure 2: Comparison of Perfect Calculators, Perfect Vending Machines, and Real Calculation</em></p>
+
+<table>
+<colgroup>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;">Perfect Calculators</th>
+	<th style="text-align:left;">Perfect Vending Machines</th>
+	<th style="text-align:left;">Real Calculation<sup><a href="#fn7-24570" id="fnr7-24570" title="see footnote" class="footnote">7</a></sup></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">Perfect knowledge</td>
+	<td style="text-align:left;">Imperfect knowledge</td>
+	<td style="text-align:left;">Imperfect Knowledge</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Perfect understanding of utility</td>
+	<td style="text-align:left;">Imperfect understanding of utility</td>
+	<td style="text-align:left;">Imperfect understanding of utility</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Perfect rationality</td>
+	<td style="text-align:left;">Heuristics/biases</td>
+	<td style="text-align:left;">Heuristics/biases</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Infinite set of possible actions<sup><a href="#fn8-24570" id="fnr8-24570" title="see footnote" class="footnote">8</a></sup></td>
+	<td style="text-align:left;">Infinite set of possible actions<sup><a href="#fn9-24570" id="fnr9-24570" title="see footnote" class="footnote">9</a></sup></td>
+	<td style="text-align:left;">Finite set of possible actions</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Zero time delay in calculation</td>
+	<td style="text-align:left;">Zero time delay in calculation</td>
+	<td style="text-align:left;">Time delay in calculation</td>
+</tr>
+</tbody>
+</table>
+
+<p>Clearly, a perfect vending machine could never actually exist. There are physical barriers, as real calculation can only calculate finite sets and necessarily occurs over a period of time; a perfect vending machine would require computation of infinite sets without a time delay.</p>
+
+<p>Regardless, perfect vending machines are <em>significantly</em> closer to real calculation than perfect calculators. A perfect vending machine would use varying levels of imperfectly rough calculation, which would include varying levels of imperfect knowledge (instead of perfect knowledge), heuristics and biases (instead of perfect rationality), and an imperfect understanding of utility (instead of a perfect understanding of utility).</p>
+
+<h3 id="implications-for-rule-based-ethics">Implications for Rule-Based Ethics</h3>
+
+<p>Under act-utilitarianism, actors should act to maximize utility. Absent a perfect calculator, perfect vending machines could use the &#8220;instruction manual&#8221; laid out in section 2 to choose an optimal action while accounting for the costs of calculation. However, each level of roughness in calculation would have to compare every possible action against every other possible action. After all, act-utilitarianism requires <em>maximization</em>, implicating the obligation to find the act which <em>maximizes</em> utility. However, not all ethical theories require maximization.</p>
+
+<p>Understanding how a perfect vending machine could take into account the costs of calculation under a question of adherence to a (set of) rule(s) would implicate the possible application of perfect vending machines to any form of ethics based on adherence to a (set of) rule(s).</p>
+
+<p>Under rule-utilitarianism, maximization only occurs in the formulation of rules. Given a set of created utilitarian rules, a perfect vending machine would only need to calculate the binary value of whether or not a certain act adheres to a finite set of rules. While I do not lay out an instruction manual for a perfect vending machine operating under rule-utilitarianism, the costs of each level of calculation would likely be <em>significantly</em> lower, meaning a greater level of precision in calculation – and thereby more accurate results – with the same amount of calculation cost. In fact, that difference in calculation costs <em>could</em> be sufficient to make rule-utilitarianism create more utility than act-utilitarianism. </p>
+
+<p>Actually, any rule-based ethic – not just rule-utilitarianism – would require calculation, at least in the form of answering the question &#8220;does this action follow a particular (set of) rule(s).&#8221; For instance, acting morally under Kantianism would imply that actors calculate whether or not a particular action they intend to perform violates the two formulations of his categorical imperative. If it does, the action is forbidden; if it doesn&#8217;t, the action is permissible (and possibly obligatory or supererogatory).</p>
+
+<p>An instruction manual for perfect vending machines operating under rule-based ethics (rather than maximization under act-utilitarianism) could have broad implications for rule-utilitarianism, Kantianism, and any other rule-based ethic. Thus, creating such an instruction manual could be an important area for future research.</p>
+
+<h3 id="implications-for-actors-who-maximize-in-other-fields">Implications for Actors who Maximize in Other Fields</h3>
+
+<p>In act-utilitarianism, actors are meant to maximize utility. However, neither act-utilitarianism nor philosophy are the only fields in which actors maximize for certain objectives. In fact, the application of section 2&#8217;s instruction manual for perfect vending machines is applicable to <em>any</em> field in which actors maximize for certain objectives.</p>
+
+<p>Some examples of actors who maximize include (but aren&#8217;t even <em>close</em> to limited to):</p>
+
+<ul>
+<li>individuals, governments, and groups maximizing utility under act-utilitarianism</li>
+<li>businesses maximizing profit under capitalism</li>
+<li>charities and philanthropies maximizing impact under effective altruism<sup><a href="#fn10-24570" id="fnr10-24570" title="see footnote" class="footnote">10</a></sup></li>
+<li>governments, maximizing welfare for their citizens</li>
+</ul>
+
+<p>As an example, I&#8217;ll use business.</p>
+
+<p>Take Company X. They have a set of actions at their disposal: raise/lower their prices by any amount, introduce a new product, take a line of products off the shelves, expand to a new market, etc. A perfect vending machine would be extremely similar to current models of decision-making in business, with the addition that <em>it would take the costs of decision-making into account</em>. Each meeting, each email, each hired consultant or time spent on decision-making comes at the cost of Company X&#8217;s resources. Company X might initially give an extremely small team very limited time and resources to evaluate:</p>
+
+<ol>
+<li>Which action would provide the most profit?</li>
+<li>How much profit would that action provide?</li>
+<li>What would be the cost of knowing the answer to the previous two questions with slightly more certainty – for instance, by hiring a slightly larger team, giving the team slightly more time, using slightly more expensive software, etc?</li>
+</ol>
+
+<p>Company X would then either choose the action which would provide the most profit by pursuing the action chosen in response to question 1 (if the cost in question 3 was greater than the profit in question 2) or pursue the answer to question 1 with slightly more resources, continuing the cycle in a fashion analogous to the instruction manual of section 2.</p>
+
+<p>This process would enable any company to more accurately take the costs associated with decision-making into account in their profit-seeking operations.</p>
+
+<p>Breaking from the example of the business world, this process would enable <em>any maximizing actor</em> to more accurately take the costs associated with decision-making into account in their objective-maximizing actions.</p></section>
+<section><h2 id="4-critiques-and-problems">4 – Critiques and Problems</h2>
+
+<p>I&#8217;ve laid out a few critiques and problems, categorized under (critiques of) roughness, confidence, &#8220;perfect&#8221; roughness and &#8220;perfect&#8221; precision, applications to rule-based ethics, infinities, information hazards, and a few other, miscellanious problems.</p>
+
+<p>A solution to any of the following critiques would contribute greatly to the ideas within this paper. Although I&#8217;m confident that there exists solutions to some (if not all) of the below problems, they remain outside the bounds of this paper.</p>
+
+<h3 id="roughness">Roughness</h3>
+
+<p>Section 1 defines &#8220;imperfectly rough calculation&#8221; as &#8220;perfect calculat[ion] &#8230; with some inherent flaw in calculation, like imperfect knowledge, or use [of] some heuristic or bias.&#8221; However, this informal definition of roughness doesn&#8217;t naturally translate to a <em>scale</em> of roughness – in other words, there isn&#8217;t a natural transformation of some &#8220;inherent flaw in calculation&#8221; to percentages of roughness, nor percentages in confidence of result. </p>
+
+<p>Additionally, some ideas within the paper assume that the scale of roughness is stepwise (moving between &#8220;levels&#8221; or &#8220;steps&#8221; or roughness), and others assume it is continuous (imperfectly rough calculation to an arbitrary degree of precision). Clearly, the scale cannot be both stepwise and continuous.</p>
+
+<h3 id="confidence">Confidence</h3>
+
+<p>The &#8220;confidence&#8221; that a perfect vending machine has in its result could be represented in a variety of ways, each of which have their own problems and complications associated with them. For instance, using confidence intervals would complicate the comparison between the utility value of a particular action with the costs of calculation, as the first is a confidence interval (a set of values) while the second is a single value.</p>
+
+<h3 id="perfect-roughness-and-perfect-precision">&#8220;Perfect&#8221; Roughness and &#8220;Perfect&#8221; Precision</h3>
+
+<p>It seems impossible to grasp what &#8220;perfect&#8221; roughness or &#8220;perfect&#8221; precision would actually entail. Given that this paper nearly exclusively deals with perfect vending machines, which exclusively calculate with imperfect roughness, this is not a central discussion of the paper. However, an understanding of the two ends of the scale of roughness would promote a greater understanding of the scale of roughness, itself a necessary and ideologically fundamental component of perfect vending machines.</p>
+
+<h3 id="applications-to-rule-based-ethics">Applications to Rule-Based Ethics</h3>
+
+<p>Perfect vending machines might (in some yet uncreated instruction manual) be able to account for the costs of calculation associated with determining whether or not a given action adheres to a set of rules.</p>
+
+<p>However, the results of that possibility in this paper rely on the assumption that adherence to rules is binary – that an action either adheres to a particular (set of) rule(s) or it doesn&#8217;t. Instead, adherence to rules could be stepwise- or continuously-gradational. In other words, it may be the case that an action could adhere in 3 of 4 ways to a (set of) rule(s), or adhere 93.666&#8230;% to a (set of) rule(s). The first of those examples would be a stepwise-gradation of adherence, and the second would be a continuous-gradation of adherence.</p>
+
+<p>Additionally, the findings in this paper have ignored the fundamental and prerequisite problem of <em>constructing</em> a (set of) rule(s). For some rule-based ethics, like Kantianism and rule-utilitarianism, constructing a (set of) maxim(s) or rule(s) is necessary and prerequisite to testing an action against them. In these forms of rule-based ethics, a perfect vending machine would only be of use <em>after</em> a particular (set of) maxim(s) or rule(s) is constructed, at least in the methods described in this paper. However, a perfect vending machine may actually be useful in the construction of rules – but for that to be the case, an instruction manual for using a perfect vending machine to construct rules in a rule-based ethic would have to be developed.</p>
+
+<h3 id="infinities">Infinities</h3>
+
+<p>Some areas of this paper glide over the notoriously difficult problems associated with infinity. Notably, act-utilitarianism entails an infinite set of possible actions, meaning a perfect vending machine would be required to iterate through an infinite set (that of all possible actions). A second infinity would be the potentially infinite levels of roughness of calculation that a perfect vending machine would iterate through to get to the level which would maximize the overall amount of utility. These infinities shouldn&#8217;t be explained away merely by reference to an &#8220;abstract&#8221; calculator – a more formal explanation for understanding and grappling with infinity in the contexts of this paper ought to be developed.</p>
+
+<h3 id="information-hazards">Information Hazards</h3>
+
+<p>Information hazards are defined and characterized primarily by Nick Bostrom.</p>
+
+<blockquote>
+<p>Information hazards are risks that arise from the dissemination or the potential dissemination of true information that may cause harm or enable some agent to cause harm.<sup><a href="#fn11-24570" id="fnr11-24570" title="see footnote" class="footnote">11</a></sup></p>
+</blockquote>
+
+<p>A classic example of an information hazard is the dissemination of instructions to create a nuclear bomb.</p>
+
+<p>The relevance of information hazards to perfect vending machines lies in the crucial fact that perfect vending machines are not agents themselves. Instead, they pass information on to agents, who then act based on that information. If, however, that information is a hazard – perhaps even hazardous to the completion of the action itself – then the passing of the optimal action to the actor becomes paradoxical and impossible.</p>
+
+<p>For example, imagine a perfect vending machine finds that the optimal action is for an actor to &#8220;picture anything <em>except</em> a green elephant.&#8221; By understanding what the optimal action is, an actor would probably accidentally picture a green elephant, thereby preventing the optimal action from occurring.</p>
+
+<p>Another example is subconscious action. For instance, imagine a perfect vending machine finds that the optimal action is for an actor to &#8220;regulate their breathing and blinking subconsciously.&#8221; By informing an actor of the optimal action, an actor would likely begin to think about their breathing and blinking consciously, by force of habit, again preventing the optimal action from occurring.</p>
+
+<p>In short, information about the optimal action could be hazardous, even to the possibility of performing the optimal action in the first place.</p>
+
+<h3 id="other">Other</h3>
+
+<p>The following are miscellaneous, uncategorized critiques.</p>
+
+<p>A small but salient critique on the instruction manual: it doesn&#8217;t actually take into account the cost of calculation on the very first level of calculation. This utility cost would be potentially infinitely close to zero, but never actually zero. Importantly, that infinitesimal cost is never accounted for in the instruction manual laid out in section 2.</p>
+
+<p>Additionally, the use of a perfect vending machine in the instruction manual would result in actors never actually knowing the truly optimal action. While this isn&#8217;t necessarily bad nor necessarily a problem so long as utility is maximized, there&#8217;s still an uncomfortable element in knowing that there&#8217;s a better option out there, just out of reach.</p>
+
+<p>Finally, and perhaps most important, I do not necessarily claim that any of the background ethical theories that I use, including utilitarianism (in all of its forms), consequentialism, Kantianism, and so on, are valid nor true. I believe there are fair and valid critiques of each of the above theories of ethics, and that they remain generally untouched by this paper. Any critique of the background ethical theories that I employ would likely apply to the claims – but likely not to the applications – of this paper.</p>
+</section>
+<section>
+	<div class="footnotes">
+<hr />
+<ol>
+
+<li id="fn1-24570">
+<p>The &#8220;optimal action&#8221; is the action which, under a given theory of utilitarianism – act/rule, total/average, strong/weak, positive/negative, etc – the value for which agents and/or an agent ought to maximize is maximized. In other words, the &#8220;optimal action&#8221; is the action which is has the highest expected value. For example, if the set of all actions is {(save 2 people from drowning), (save 3 people from drowning), (save 4 people from drowning)}, then the optimal action would be (save 4 people from drowning), since it maximizes utility under any given utilitarian theory. <a href="#fnr1-24570" title="return to article" class="reversefootnote">&#8617;&#xFE0E;</a></p>
+</li>
+
+<li id="fn2-24570">
+<p>&#8220;Utility costs&#8221; are viewed as, abstractly, utility points being subtracted from whatever count of utility is used in the form of utilitarianism that is assumed. For instance, total, weakly-negative utilitarians might see a utility cost as additional pain being added to the total amounts of pleasure and pain experienced by sentient beings. Since these are abstract machines without an actual connection to the real world, it would be difficult to imagine the utility costs of calculation with physical representations, like a broken ankle or a lack of dopamine rushes. Instead, it&#8217;s easier to imagine the utility costs as a &#8220;negative utility point value.&#8221; Notably, however, any cost that happens over a period of time is necessarily excluded (or exacted post-calculation), considering that any form of perfect or imperfect calculation in this paper is assumed to have zero time delay; thus, exacting costs that happen over a period of time during calculation that does not happen over a period of time is contradictory. <a href="#fnr2-24570" title="return to article" class="reversefootnote">&#8617;&#xFE0E;</a></p>
+</li>
+
+<li id="fn3-24570">
+<p>I imagine perfect vending machines to be similar to the perfect calculators above, except that each time one presses the button, one has to &#8220;give up&#8221; a little bit of utility. One pays a vending machine a few dollars for a Snickers bar; one pays a perfect vending machine a few utility points for knowledge of the optimal action. <a href="#fnr3-24570" title="return to article" class="reversefootnote">&#8617;&#xFE0E;</a></p>
+</li>
+
+<li id="fn4-24570">
+<p>This relationship may not be linear, nor even continuous, but it would be positive (i.e. an increase in preciseness of calculation would correspond to an increase in preciseness of result, and a decrease in preciseness of calculation would result in a decrease in preciseness of result). <a href="#fnr4-24570" title="return to article" class="reversefootnote">&#8617;&#xFE0E;</a></p>
+</li>
+
+<li id="fn5-24570">
+<p>Again, this relationship may not be linear, nor even continuous, but it would be positive (i.e. an increase in preciseness of calculation would correspond to greater utility cost, and a decrease in preciseness of calculation would result in lesser utility cost). <a href="#fnr5-24570" title="return to article" class="reversefootnote">&#8617;&#xFE0E;</a></p>
+</li>
+
+<li id="fn6-24570">
+<p>In cases where the utility value of the optimal action plus the sum total utility cost of all previous levels of calculations, the current level of calculation, and the next level of calculation is <strong>equal to</strong> zero, rather than greater than or less than, we are actually quite lucky – we can simply stop calculation there, and not have wasted any additional cost on calculation. In fact, we may actually never reach the point of &#8220;less than,&#8221; and instead simply stop at the infinitesimal point of &#8220;equal than.&#8221; <a href="#fnr6-24570" title="return to article" class="reversefootnote">&#8617;&#xFE0E;</a></p>
+</li>
+
+<li id="fn7-24570">
+<p>In this case, &#8220;real&#8221; calculation denotes the types of utilitarian calculation that might actually be concretely possible and applicable. <a href="#fnr7-24570" title="return to article" class="reversefootnote">&#8617;&#xFE0E;</a></p>
+</li>
+
+<li id="fn8-24570">
+<p>Specifically, the ability to iterate through an infinite set of actions to choose the one which maximizes utility. However, iterating through an infinite set occurs only in calculation under act-utilitarianism – in rule-utilitarianism, a single action would be tested against a finite set of rules, not requiring an infinite set. <a href="#fnr8-24570" title="return to article" class="reversefootnote">&#8617;&#xFE0E;</a></p>
+</li>
+
+<li id="fn9-24570">
+<p>Refer to the previous note. <a href="#fnr9-24570" title="return to article" class="reversefootnote">&#8617;&#xFE0E;</a></p>
+</li>
+
+<li id="fn10-24570">
+<p>According to the Centre for Effective Altruism, &#8220;effective altruism is about using evidence and reason to figure out how to benefit others as much as possible, and taking action on that basis.&#8221; (<a class="autolink" href="https://www.centreforeffectivealtruism.org/ceas-guiding-principles#what-is-effective-altruism">https://www.centreforeffectivealtruism.org/ceas-guiding-principles#what-is-effective-altruism</a>) <a href="#fnr10-24570" title="return to article" class="reversefootnote">&#8617;&#xFE0E;</a></p>
+</li>
+
+<li id="fn11-24570">
+<p>Nick Bostrom, 2011. &#8220;Information Hazards: A Typology of Potential Harms from Knowledge&#8221;, page 1. <a class="autolink" href="https://nickbostrom.com/information-hazards.pdf">https://nickbostrom.com/information-hazards.pdf</a> <a href="#fnr11-24570" title="return to article" class="reversefootnote">&#8617;&#xFE0E;</a></p>
+</li>
+
+</ol>
+</div>
+
+	</section>
+</article>
+</body>
+</html>
